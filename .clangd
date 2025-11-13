@@ -1,0 +1,7 @@
+CompileFlags:
+  Add: [-Wall, -Wextra, -Wpedantic, -Wshadow, -Wconversion, -Wsign-conversion, -fno-common]
+
+Diagnostics:
+  ClangTidy: 
+    Add: [performance-*, bugprone-*, clang-analyzer-*]
+    Remove: [llvm-header-guard, readability-magic-numbers, readability-identifier-naming]
