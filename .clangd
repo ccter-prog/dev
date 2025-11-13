@@ -4,4 +4,4 @@ CompileFlags:
 Diagnostics:
   ClangTidy: 
     Add: [performance-*, bugprone-*, clang-analyzer-*]
-    Remove: [llvm-header-guard, readability-magic-numbers, readability-identifier-naming]
+    Remove: [llvm-header-guard, readability-magic-numbers, readability-identifier-naming, bugprone-easily-swappable-parameters]
