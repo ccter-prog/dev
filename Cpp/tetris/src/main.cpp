@@ -7,7 +7,7 @@ int main() {
     // 创建一个矩形方块
     sf::RectangleShape block({100.f, 100.f});
     block.setPosition({100.f, 100.f});
-    block.setFillColor(sf::Color::White);
+    block.setFillColor(sf::Color::Red);
 
     // 游戏循环
     while (window.isOpen()) {
