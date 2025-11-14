@@ -1,0 +1,10 @@
+# ======IDE======
+.vscode
+
+# ======通用======
+build
+
+# ======C++======
+*.exe
+compile_commands.json
+.cache
