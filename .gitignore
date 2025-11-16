@@ -1,13 +1,16 @@
-# ======平台======
+# ==========平台==========
 .DS_Store
 
-# ======IDE======
+# ==========IDE==========
 .vscode
 
-# ======通用======
+# ==========通用==========
 build
+build_release
+build.zip
+build_release.zip
 
-# ======C++======
+# ==========C++==========
 *.exe
 compile_commands.json
 .cache

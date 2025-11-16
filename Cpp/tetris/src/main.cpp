@@ -1,26 +1,41 @@
 #include <SFML/Graphics.hpp>
+#include "Game.h"
 
-int main() {
-    // 使用英文标题
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "My Tetris!");
-    
-    // 创建一个矩形方块
-    sf::RectangleShape block({100.f, 100.f});
-    block.setPosition({100.f, 100.f});
-    block.setFillColor(sf::Color::Red);
+int main()
+{
+    // 创建游戏窗口
+    sf::RenderWindow window(sf::VideoMode({800, 700}), "Tetris");
+    window.setFramerateLimit(60);
 
-    // 游戏循环
-    while (window.isOpen()) {
-        // 事件处理
-        while (auto event = window.pollEvent()) {
-            if (event->is<sf::Event::Closed>()) {
+    // 初始化游戏实例
+    Game game;
+
+    // 主游戏循环
+    while (window.isOpen())
+    {
+        while (std::optional event = window.pollEvent())
+        {
+            if (event -> is<sf::Event::Closed>())
+            {
+                game.saveHighScore();
                 window.close();
+            }
+            else if (event -> is<sf::Event::KeyPressed>())
+            {
+                const auto& keyEvent = event -> getIf<sf::Event::KeyPressed>();
+                if (keyEvent)
+                {
+                    game.handleInput(keyEvent -> code);
+                }
             }
         }
 
+        // 更新游戏状态
+        game.update();
+
         // 渲染
-        window.clear();
-        window.draw(block);
+        window.clear(sf::Color::Black);
+        game.draw(window);
         window.display();
     }
 
